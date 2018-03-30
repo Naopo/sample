@@ -15,19 +15,18 @@ class SessionsController extends Controller
 
     public function store(Request $request)
     {
-      // $credentils = $this->validate($request,[
-      //   'email' => 'required|email|max:255',
-      //   'password' => 'required'
-      // ]);
-      //
-      // if(Auth::attempt($credentils,$request->has('remember'))){
-      //   session()->flash('success','欢迎回来！');
-      //   return redirect()->route('users.show',[Auth::user()]);
-      // }else{
-      //   session()->flash('danger','很抱歉，您的邮箱和密码不匹配');
-      //   return redirect()->back();
-      // }
-      echo '1';
+      $credentils = $this->validate($request,[
+        'email' => 'required|email|max:255',
+        'password' => 'required'
+      ]);
+
+      if(Auth::attempt($credentils,$request->has('remember'))){
+        session()->flash('success','欢迎回来！');
+        return redirect()->route('users.show',[Auth::user()]);
+      }else{
+        session()->flash('danger','很抱歉，您的邮箱和密码不匹配');
+        return redirect()->back();
+      }
     }
 
     public function destroy()

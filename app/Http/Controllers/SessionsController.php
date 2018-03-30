@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
 
-class SessionsController extends Controller
+class Sessionscontroller extends Controller
 {
     public function create()
     {
